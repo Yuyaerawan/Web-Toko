@@ -4,40 +4,40 @@ import { useState } from "react";
 
 const products = [
   // 🟦 Pakaian (10 produk)
-  { id: 1, name: "T-shirt", price: 20, img: "src/images/baju.png", category: "Pakaian" },
-  { id: 2, name: "Pants", price: 25, img: "src/images/celana.png", category: "Pakaian" },
-  { id: 3, name: "Hoodie", price: 40, img: "src/images/hoodie.png", category: "Pakaian" },
-  { id: 4, name: "Jacket", price: 60, img: "src/images/jaket.png", category: "Pakaian" },
-  { id: 5, name: "Shirt", price: 35, img: "src/images/kemeja.png", category: "Pakaian" },
-  { id: 6, name: "Shorts", price: 18, img: "src/images/celana-pendek.png", category: "Pakaian" },
-  { id: 7, name: "Sweater", price: 32, img: "src/images/sweater.png", category: "Pakaian" },
-  { id: 8, name: "Dress", price: 50, img: "src/images/gaun.png", category: "Pakaian" },
-  { id: 9, name: "Skirt", price: 28, img: "src/images/rok.png", category: "Pakaian" },
-  { id: 10, name: "Blazer", price: 55, img: "src/images/blazer.png", category: "Pakaian" },
+  { id: 1, name: "T-shirt", price: 20, img: "/images/baju.png", category: "Pakaian" },
+  { id: 2, name: "Pants", price: 25, img: "/images/celana.png", category: "Pakaian" },
+  { id: 3, name: "Hoodie", price: 40, img: "/images/hoodie.png", category: "Pakaian" },
+  { id: 4, name: "Jacket", price: 60, img: "/images/jaket.png", category: "Pakaian" },
+  { id: 5, name: "Shirt", price: 35, img: "/images/kemeja.png", category: "Pakaian" },
+  { id: 6, name: "Shorts", price: 18, img: "/images/celana-pendek.png", category: "Pakaian" },
+  { id: 7, name: "Sweater", price: 32, img: "/images/sweater.png", category: "Pakaian" },        
+  { id: 8, name: "Dress", price: 50, img: "/images/gaun.png", category: "Pakaian" },
+  { id: 9, name: "Skirt", price: 28, img: "/images/rok.png", category: "Pakaian" },
+  { id: 10, name: "Blazer", price: 55, img: "/images/blazer.png", category: "Pakaian" },
 
   // 🟩 Sepatu (10 produk)
-  { id: 11, name: "Sneakers", price: 50, img: "src/images/sepatu.png", category: "Sepatu" },
-  { id: 12, name: "Running Shoes", price: 65, img: "src/images/sepatu-lari.png", category: "Sepatu" },
-  { id: 13, name: "Boots", price: 80, img: "src/images/boots.png", category: "Sepatu" },
-  { id: 14, name: "Sandals", price: 25, img: "src/images/sandal.png", category: "Sepatu" },
-  { id: 15, name: "Loafers", price: 70, img: "src/images/loafer.png", category: "Sepatu" },
-  { id: 16, name: "High Heels", price: 75, img: "src/images/high-heels.png", category: "Sepatu" },
-  { id: 17, name: "Formal Shoes", price: 85, img: "src/images/sepatu-formal.png", category: "Sepatu" },
-  { id: 18, name: "Slip-on", price: 40, img: "src/images/slipon.png", category: "Sepatu" },
-  { id: 19, name: "Soccer Shoes", price: 95, img: "src/images/sepatu-bola.png", category: "Sepatu" },
-  { id: 20, name: "Flip Flops", price: 12, img: "src/images/flipflop.png", category: "Sepatu" },
+  { id: 11, name: "Sneakers", price: 50, img: "/images/sepatu.png", category: "Sepatu" },
+  { id: 12, name: "Running Shoes", price: 65, img: "/images/sepatu-lari.png", category: "Sepatu" },
+  { id: 13, name: "Boots", price: 80, img: "/images/boots.png", category: "Sepatu" },
+  { id: 14, name: "Sandals", price: 25, img: "/images/sandal.png", category: "Sepatu" },
+  { id: 15, name: "Loafers", price: 70, img: "/images/loafer.png", category: "Sepatu" },
+  { id: 16, name: "High Heels", price: 75, img: "/images/high-heels.png", category: "Sepatu" },
+  { id: 17, name: "Formal Shoes", price: 85, img: "/images/sepatu-formal.png", category: "Sepatu" },
+  { id: 18, name: "Slip-on", price: 40, img: "/images/slipon.png", category: "Sepatu" },
+  { id: 19, name: "Soccer Shoes", price: 95, img: "/images/sepatu-bola.png", category: "Sepatu" },
+  { id: 20, name: "Flip Flops", price: 12, img: "/images/flipflop.png", category: "Sepatu" },
 
   // 🟥 Aksesoris (10 produk)
-  { id: 21, name: "Hat", price: 15, img: "src/images/topi.png", category: "Aksesoris" },
-  { id: 22, name: "Cap", price: 18, img: "src/images/cap.png", category: "Aksesoris" },
-  { id: 23, name: "Belt", price: 22, img: "src/images/ikatpinggang.png", category: "Aksesoris" },
-  { id: 24, name: "Sunglasses", price: 30, img: "src/images/kacamata.png", category: "Aksesoris" },
-  { id: 25, name: "Watch", price: 100, img: "src/images/jam.png", category: "Aksesoris" },
-  { id: 26, name: "Bracelet", price: 28, img: "src/images/gelang.png", category: "Aksesoris" },
-  { id: 27, name: "Necklace", price: 45, img: "src/images/kalung.png", category: "Aksesoris" },
-  { id: 28, name: "Ring", price: 35, img: "src/images/cincin.png", category: "Aksesoris" },
-  { id: 29, name: "Scarf", price: 20, img: "src/images/syal.png", category: "Aksesoris" },
-  { id: 30, name: "Gloves", price: 25, img: "src/images/sarung-tangan.png", category: "Aksesoris" },
+  { id: 21, name: "Hat", price: 15, img: "/images/topi.png", category: "Aksesoris" },
+  { id: 22, name: "Cap", price: 18, img: "/images/cap.png", category: "Aksesoris" },
+  { id: 23, name: "Belt", price: 22, img: "/images/ikatpinggang.png", category: "Aksesoris" },
+  { id: 24, name: "Sunglasses", price: 30, img: "/images/kacamata.png", category: "Aksesoris" },
+  { id: 25, name: "Watch", price: 100, img: "/images/jam.png", category: "Aksesoris" },
+  { id: 26, name: "Bracelet", price: 28, img: "/images/gelang.png", category: "Aksesoris" },
+  { id: 27, name: "Necklace", price: 45, img: "/images/kalung.png", category: "Aksesoris" },
+  { id: 28, name: "Ring", price: 35, img: "/images/cincin.png", category: "Aksesoris" },
+  { id: 29, name: "Scarf", price: 20, img: "/images/syal.png", category: "Aksesoris" },
+  { id: 30, name: "Gloves", price: 25, img: "/images/sarung-tangan.png", category: "Aksesoris" },
 ];
 
 const categories = ["All", "Pakaian", "Sepatu", "Aksesoris"];
@@ -85,7 +85,7 @@ export default function Dashboard() {
           minHeight: "400px",
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-red-800/70 via-black-700/60 to-yellow-700/70"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-800/70 via-blue-700/60 to-blue-700/70"></div>
         <div className="relative z-10 w-full max-w-screen-xl mx-auto">
           <div className="px-6 md:px-12 lg:px-24 pt-12 pb-4">
             <h2 className="text-3xl md:text-4xl font-extrabold drop-shadow-lg">
