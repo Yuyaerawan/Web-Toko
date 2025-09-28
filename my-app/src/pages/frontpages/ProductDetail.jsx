@@ -3,13 +3,45 @@ import { useParams } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
 
 // --- DATA PRODUK (path gambar tetap sama seperti di dashboard) ---
+// --- DATA PRODUK (sinkron dengan Dashboard, ditambah field sizes) ---
 const rawProducts = [
-  { id: 1, name: "T-shirt", price: 20, img: "/images/baju.png", category: "Pakaian", sizes: ["S", "M", "L", "XL"] },
-  { id: 2, name: "Pants", price: 25, img: "/images/celana.png", category: "Pakaian", sizes: ["28", "30", "32", "34"] },
-  { id: 11, name: "Sneakers", price: 50, img: "/images/sepatu.png", category: "Sepatu", sizes: ["38", "39", "40", "41", "42"] },
-  { id: 21, name: "Hat", price: 15, img: "/images/topi.png", category: "Aksesoris", sizes: ["One Size"] },
-  // ... (lanjutkan sesuai data lengkap Anda)
+  // 🟦 Pakaian
+  { id: 1, name: "Baju kaos", price: 110, img: "/images/baju.png", category: "Pakaian", sizes: ["S", "M", "L", "XL"] },
+  { id: 2, name: "celana", price: 125, img: "/images/celana.png", category: "Pakaian", sizes: ["28", "30", "32", "34"] },
+  { id: 3, name: "Hoodie", price: 240, img: "/images/hoodie.png", category: "Pakaian", sizes: ["S", "M", "L", "XL"] },
+  { id: 4, name: "Jaket", price: 260, img: "/images/jaket.png", category: "Pakaian", sizes: ["M", "L", "XL"] },
+  { id: 5, name: "Kemeja", price: 235, img: "/images/kemeja.png", category: "Pakaian", sizes: ["S", "M", "L", "XL"] },
+  { id: 6, name: "Celana Panjang", price: 218, img: "/images/celana panjang.png", category: "Pakaian", sizes: ["28", "30", "32", "34"] },
+  { id: 7, name: "Sweater", price: 232, img: "/images/sweater.png", category: "Pakaian", sizes: ["S", "M", "L", "XL"] },
+  { id: 8, name: "Dress", price: 250, img: "/images/dress.png", category: "Pakaian", sizes: ["S", "M", "L"] },
+  { id: 9, name: "Rok", price: 228, img: "/images/rok.png", category: "Pakaian", sizes: ["S", "M", "L"] },
+  { id: 10, name: "Blazer", price: 255, img: "/images/blazer.png", category: "Pakaian", sizes: ["M", "L", "XL"] },
+
+  // 🟩 Sepatu
+  { id: 11, name: "Sneakers", price: 450, img: "/images/sepatu.png", category: "Sepatu", sizes: ["38", "39", "40", "41", "42"] },
+  { id: 12, name: "Sepatu Lari", price: 465, img: "/images/sepatu lari.png", category: "Sepatu", sizes: ["38", "39", "40", "41", "42"] },
+  { id: 13, name: "Boots", price: 480, img: "/images/boots.png", category: "Sepatu", sizes: ["39", "40", "41", "42", "43"] },
+  { id: 14, name: "Sandal", price: 225, img: "/images/sandal.png", category: "Sepatu", sizes: ["38", "39", "40", "41", "42"] },
+  { id: 15, name: "Loafers", price: 370, img: "/images/loafers.png", category: "Sepatu", sizes: ["39", "40", "41", "42", "43"] },
+  { id: 16, name: "High Heels", price: 475, img: "/images/high heels.png", category: "Sepatu", sizes: ["36", "37", "38", "39", "40"] },
+  { id: 17, name: "Sepatu Formal", price: 485, img: "/images/sepatu formal.png", category: "Sepatu", sizes: ["39", "40", "41", "42", "43"] },
+  { id: 18, name: "Slip-on", price: 440, img: "/images/slip on.png", category: "Sepatu", sizes: ["38", "39", "40", "41", "42"] },
+  { id: 19, name: "Sepatu Bola", price: 495, img: "/images/sepatu bola.png", category: "Sepatu", sizes: ["39", "40", "41", "42", "43"] },
+  { id: 20, name: "Sandal Jepit", price: 212, img: "/images/sandal jepit.png", category: "Sepatu", sizes: ["38", "39", "40", "41", "42"] },
+
+  // 🟥 Aksesoris
+  { id: 21, name: "Topi", price: 150, img: "/images/topi.png", category: "Aksesoris", sizes: ["One Size"] },
+  { id: 22, name: "Topi Baseball", price: 158, img: "/images/topi baseball.png", category: "Aksesoris", sizes: ["One Size"] },
+  { id: 23, name: "Sabuk", price: 62, img: "/images/sabuk.png", category: "Aksesoris", sizes: ["One Size"] },
+  { id: 24, name: "Kacamata", price: 100, img: "/images/kacamata.png", category: "Aksesoris", sizes: ["One Size"] },
+  { id: 25, name: "Jam Tangan", price: 250, img: "/images/jam tangan.png", category: "Aksesoris", sizes: ["One Size"] },
+  { id: 26, name: "Gelang", price: 68, img: "/images/gelang.png", category: "Aksesoris", sizes: ["One Size"] },
+  { id: 27, name: "Kalung", price: 95, img: "/images/kalung.png", category: "Aksesoris", sizes: ["One Size"] },
+  { id: 28, name: "Cincin", price: 55, img: "/images/cincin.png", category: "Aksesoris", sizes: ["One Size"] },
+  { id: 29, name: "Syal", price: 120, img: "/images/syal.png", category: "Aksesoris", sizes: ["One Size"] },
+  { id: 30, name: "Sarung Tangan", price: 175, img: "/images/sarung tangan.png", category: "Aksesoris", sizes: ["One Size"] },
 ];
+
 
 const products = rawProducts.reduce((acc, product) => {
   acc[product.id] = product;
@@ -110,14 +142,14 @@ export default function ProductDetail() {
             <div className="flex items-center bg-gray-700 rounded-full p-1">
               <button
                 onClick={() => setQuantity(q => Math.max(1, q - 1))}
-                className="text-white w-8 h-8 rounded-full flex items-center justify-center text-xl font-bold hover:bg-gray-600 transition-colors"
+                className="text-black w-8 h-8 rounded-full flex items-center justify-center text-xl font-bold hover:bg-gray-600 transition-colors"
               >
                 −
               </button>
               <span className="text-xl font-semibold w-8 text-center text-white">{quantity}</span>
               <button
                 onClick={() => setQuantity(q => q + 1)}
-                className="text-white w-8 h-8 rounded-full flex items-center justify-center text-xl font-bold hover:bg-gray-600 transition-colors"
+                className="text-black w-8 h-8 rounded-full flex items-center justify-center text-xl font-bold hover:bg-gray-600 transition-colors"
               >
                 +
               </button>

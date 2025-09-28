@@ -15,7 +15,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
           {/* Brand */}
           <div>
-            <h2 className="text-2xl font-bold text-white mb-4">MyStore</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">Arstore</h2>
             <p className="text-gray-400 text-sm leading-relaxed">
               Temukan produk terbaik dengan harga menarik. Belanja mudah,
               aman, dan cepat hanya di MyStore.
@@ -57,7 +57,7 @@ export default function Footer() {
               />
               <button
                 type="submit"
-                className="px-4 py-2 bg-teal-600 text-white rounded-md hover:bg-teal-700 transition"
+                style={{ backgroundColor: "#ff0000ff" }}
               >
                 Subscribe
               </button>
@@ -78,7 +78,7 @@ export default function Footer() {
 
           {/* Copyright */}
           <p className="text-gray-400 text-sm">
-            © {new Date().getFullYear()} MyStore. All rights reserved.
+            © {new Date().getFullYear()} Arstore. All rights reserved.
           </p>
         </div>
       </div>

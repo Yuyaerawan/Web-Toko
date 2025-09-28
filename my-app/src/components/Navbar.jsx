@@ -12,7 +12,7 @@ export default function Navbar() {
             to="/" 
             className="text-xl font-bold tracking-wide transition-colors duration-200 hover:text-sky-300 font-mono"
           >
-            The Look
+            Arstore
           </Link>
         </div>
         

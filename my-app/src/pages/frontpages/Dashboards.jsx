@@ -4,62 +4,64 @@ import { useState } from "react";
 
 const products = [
   // 🟦 Pakaian (10 produk)
-  { id: 1, name: "T-shirt", price: 20, img: "/images/baju.png", category: "Pakaian" },
-  { id: 2, name: "Pants", price: 25, img: "/images/celana.png", category: "Pakaian" },
-  { id: 3, name: "Hoodie", price: 40, img: "/images/hoodie.png", category: "Pakaian" },
-  { id: 4, name: "Jacket", price: 60, img: "/images/jaket.png", category: "Pakaian" },
-  { id: 5, name: "Shirt", price: 35, img: "/images/kemeja.png", category: "Pakaian" },
-  { id: 6, name: "Shorts", price: 18, img: "/images/celana-pendek.png", category: "Pakaian" },
-  { id: 7, name: "Sweater", price: 32, img: "/images/sweater.png", category: "Pakaian" },        
-  { id: 8, name: "Dress", price: 50, img: "/images/gaun.png", category: "Pakaian" },
-  { id: 9, name: "Skirt", price: 28, img: "/images/rok.png", category: "Pakaian" },
-  { id: 10, name: "Blazer", price: 55, img: "/images/blazer.png", category: "Pakaian" },
+  // 🟦 Pakaian (10 produk) → harga di atas 200 ribu
+  { id: 1, name: "Baju kaos", price: 110, img: "/images/baju.png", category: "Pakaian" },
+  { id: 2, name: "celana", price: 125, img: "/images/celana.png", category: "Pakaian" },
+  { id: 3, name: "Hoodie", price: 240, img: "/images/hoodie.png", category: "Pakaian" },
+  { id: 4, name: "Jaket", price: 260, img: "/images/jaket.png", category: "Pakaian" },
+  { id: 5, name: "Kemeja", price: 235, img: "/images/kemeja.png", category: "Pakaian" },
+  { id: 6, name: "Celana Panjang", price: 218, img: "/images/celana panjang.png", category: "Pakaian" },
+  { id: 7, name: "Sweater", price: 232, img: "/images/sweater.png", category: "Pakaian" },
+  { id: 8, name: "Dress", price: 250, img: "/images/dress.png", category: "Pakaian" },
+  { id: 9, name: "Rok", price: 228, img: "/images/rok.png", category: "Pakaian" },
+  { id: 10, name: "Blazer", price: 255, img: "/images/blazer.png", category: "Pakaian" },
 
-  // 🟩 Sepatu (10 produk)
-  { id: 11, name: "Sneakers", price: 50, img: "/images/sepatu.png", category: "Sepatu" },
-  { id: 12, name: "Running Shoes", price: 65, img: "/images/sepatu-lari.png", category: "Sepatu" },
-  { id: 13, name: "Boots", price: 80, img: "/images/boots.png", category: "Sepatu" },
-  { id: 14, name: "Sandals", price: 25, img: "/images/sandal.png", category: "Sepatu" },
-  { id: 15, name: "Loafers", price: 70, img: "/images/loafer.png", category: "Sepatu" },
-  { id: 16, name: "High Heels", price: 75, img: "/images/high-heels.png", category: "Sepatu" },
-  { id: 17, name: "Formal Shoes", price: 85, img: "/images/sepatu-formal.png", category: "Sepatu" },
-  { id: 18, name: "Slip-on", price: 40, img: "/images/slipon.png", category: "Sepatu" },
-  { id: 19, name: "Soccer Shoes", price: 95, img: "/images/sepatu-bola.png", category: "Sepatu" },
-  { id: 20, name: "Flip Flops", price: 12, img: "/images/flipflop.png", category: "Sepatu" },
+  // 🟩 Sepatu (10 produk) → harga di atas 400 ribu
+  { id: 11, name: "Sneakers", price: 450, img: "/images/sepatu.png", category: "Sepatu" },
+  { id: 12, name: "Sepatu Lari", price: 465, img: "/images/sepatu lari.png", category: "Sepatu" },
+  { id: 13, name: "Boots", price: 480, img: "/images/boots.png", category: "Sepatu" },
+  { id: 14, name: "Sandal", price: 225, img: "/images/sandal.png", category: "Sepatu" },
+  { id: 15, name: "Loafers", price: 370, img: "/images/loafers.png", category: "Sepatu" },
+  { id: 16, name: "High Heels", price: 475, img: "/images/high heels.png", category: "Sepatu" },
+  { id: 17, name: "Sepatu Formal", price: 485, img: "/images/sepatu formal.png", category: "Sepatu" },
+  { id: 18, name: "Slip-on", price: 440, img: "/images/slip on.png", category: "Sepatu" },
+  { id: 19, name: "Sepatu Bola", price: 495, img: "/images/sepatu bola.png", category: "Sepatu" },
+  { id: 20, name: "Sandal Jepit", price: 212, img: "/images/sandal jepit.png", category: "Sepatu" },
 
-  // 🟥 Aksesoris (10 produk)
-  { id: 21, name: "Hat", price: 15, img: "/images/topi.png", category: "Aksesoris" },
-  { id: 22, name: "Cap", price: 18, img: "/images/cap.png", category: "Aksesoris" },
-  { id: 23, name: "Belt", price: 22, img: "/images/ikatpinggang.png", category: "Aksesoris" },
-  { id: 24, name: "Sunglasses", price: 30, img: "/images/kacamata.png", category: "Aksesoris" },
-  { id: 25, name: "Watch", price: 100, img: "/images/jam.png", category: "Aksesoris" },
-  { id: 26, name: "Bracelet", price: 28, img: "/images/gelang.png", category: "Aksesoris" },
-  { id: 27, name: "Necklace", price: 45, img: "/images/kalung.png", category: "Aksesoris" },
-  { id: 28, name: "Ring", price: 35, img: "/images/cincin.png", category: "Aksesoris" },
-  { id: 29, name: "Scarf", price: 20, img: "/images/syal.png", category: "Aksesoris" },
-  { id: 30, name: "Gloves", price: 25, img: "/images/sarung-tangan.png", category: "Aksesoris" },
+  // 🟥 Aksesoris (10 produk) → harga di atas 50 ribu
+  { id: 21, name: "Topi", price: 150, img: "/images/topi.png", category: "Aksesoris" },
+  { id: 22, name: "Topi Baseball", price: 158, img: "/images/topi baseball.png", category: "Aksesoris" },
+  { id: 23, name: "Sabuk", price: 62, img: "/images/sabuk.png", category: "Aksesoris" },
+  { id: 24, name: "Kacamata", price: 100, img: "/images/kacamata.png", category: "Aksesoris" },
+  { id: 25, name: "Jam Tangan", price: 250, img: "/images/jam tangan.png", category: "Aksesoris" },
+  { id: 26, name: "Gelang", price: 68, img: "/images/gelang.png", category: "Aksesoris" },
+  { id: 27, name: "Kalung", price: 95, img: "/images/kalung.png", category: "Aksesoris" },
+  { id: 28, name: "Cincin", price: 55, img: "/images/cincin.png", category: "Aksesoris" },
+  { id: 29, name: "Syal", price: 120, img: "/images/syal.png", category: "Aksesoris" },
+  { id: 30, name: "Sarung Tangan", price: 175, img: "/images/sarung tangan.png", category: "Aksesoris" },
 ];
+
 
 const categories = ["All", "Pakaian", "Sepatu", "Aksesoris"];
 
 const carouselItems = [
   {
     id: 1,
-    img: "https://via.placeholder.com/1200x400/FF5733/FFFFFF?text=Diskon+Spesial!",
+    img: "/images/diskon.png",
     title: "Diskon Akhir Tahun!",
     description: "Nikmati diskon hingga 50% untuk semua produk pilihan.",
     link: "/promo/diskon-spesial",
   },
   {
     id: 2,
-    img: "https://via.placeholder.com/1200x400/33C7FF/FFFFFF?text=Produk+Terbaru",
+    img: "/images/terbaru.png",
     title: "Koleksi Terbaru Rilis!",
     description: "Jelajahi desain eksklusif yang baru saja tiba.",
     link: "/new-arrivals",
   },
   {
     id: 3,
-    img: "https://via.placeholder.com/1200x400/33FF57/FFFFFF?text=Gratis+Ongkir",
+    img: "/images/gratis ongkir.png",
     title: "Gratis Ongkir Seluruh Indonesia!",
     description: "Belanja sekarang tanpa khawatir biaya pengiriman.",
     link: "/promo/gratis-ongkir",

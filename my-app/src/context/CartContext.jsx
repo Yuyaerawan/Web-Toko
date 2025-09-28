@@ -6,19 +6,20 @@ export function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
 
   // ✅ addToCart sekarang terima qty
-  function addToCart(product) {
+ function addToCart(product) {
   setCart((prev) => {
-    const exists = prev.find((item) => item.cartItemId === product.cartItemId);
+    const exists = prev.find((item) => item.id === product.id);
     if (exists) {
       return prev.map((item) =>
-        item.cartItemId === product.cartItemId
-          ? { ...item, qty: item.qty + product.qty }
+        item.id === product.id
+          ? { ...item, qty: item.qty + (product.qty || 1) }
           : item
       );
     }
-    return [...prev, { ...product }];
+    return [...prev, { ...product, qty: product.qty || 1 }];
   });
 }
+
 
 
   function removeFromCart(id) {
